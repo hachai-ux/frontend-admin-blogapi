@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { nanoid } from 'nanoid'
+import { nanoid } from 'nanoid';
+import { Link } from 'react-router-dom';
 
 
 const Homepage = (props) => {
@@ -98,6 +99,8 @@ const Homepage = (props) => {
 
     return (
         <div className="homepage">
+            <h1>Blog API Admin Area</h1>
+            <Link to="/newpost">Create new post</Link>
             <ul>{listItems}</ul>
         </div>
         
