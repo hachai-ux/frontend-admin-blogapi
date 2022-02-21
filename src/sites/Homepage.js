@@ -29,14 +29,29 @@ const Homepage = (props) => {
         
     },[])
     
-   
     
-    const listItems = postList.map((post) =>
+    
+    const listItems = postList.map((post) =>{
+        
+        let stateText;
+        if (post.state === 'unpublished') {
+            stateText = 'publish';
+        }
+        else if (post.state === 'published') {
+            stateText = 'unpublish';
+        }
+        
+        return(
+        
         <li key={nanoid()}>
             <h2>{post.title}</h2>
             <p>{post.text}</p>
-            <p>{post.timestamp}</p>      
-    </li>
+            <p>{post.timestamp}</p>
+            <p>{post.state}</p>
+            <button>{stateText}</button>
+                </li>
+            )
+        }
   );
   
 
