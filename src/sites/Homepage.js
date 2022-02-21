@@ -89,7 +89,8 @@ const Homepage = (props) => {
             <p>{post.text}</p>
             <p>{post.timestamp}</p>
             <p>{post.state}</p>
-            <button onClick={(e)=>handlePublishState(post, e)}>{stateText}</button>
+                <button onClick={(e) => handlePublishState(post, e)}>{stateText}</button>
+                <Link to={`/posts/${post._id}/comments`}>See and Manage Post Comments</Link>
                 </li>
             )
         }
