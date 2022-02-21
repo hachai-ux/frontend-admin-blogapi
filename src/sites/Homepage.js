@@ -33,7 +33,9 @@ const Homepage = (props) => {
     
     const listItems = postList.map((post) =>
         <li key={nanoid()}>
-      {post.title}
+            <h2>{post.title}</h2>
+            <p>{post.text}</p>
+            <p>{post.timestamp}</p>      
     </li>
   );
   
