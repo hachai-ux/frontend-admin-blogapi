@@ -21,6 +21,23 @@ const Comment = (props) => {
 
     const deleteComment = (comment, e) => {
 
+         fetch(`https://calm-wave-71314.herokuapp.com/api/posts/${postid}/comments/${comment._id}`, {
+                            method: 'DELETE',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            }
+                        })
+                            .then(response => response.json())
+                            .then(result => {
+                                
+                                console.log('Success:', result);
+                                props.removeComment(comment._id);
+
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                            });
+
     };
     
     const updateComment = (comment, e) => {

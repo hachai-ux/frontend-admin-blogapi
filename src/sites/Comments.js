@@ -10,8 +10,11 @@ const Comments = (props) => {
     let params = useParams();
     let postid = params.postid;
 
-
+    console.log(commentList);
     
+    const removeComment = (commentid) => {
+        setCommentList(commentList.filter(comment => comment._id !== commentid))
+    }
 
     useEffect(() => {
         //get comments
@@ -44,7 +47,7 @@ const Comments = (props) => {
         return (
         
             <li key={nanoid()}>
-            <Comment comment={comment}></Comment>
+            <Comment comment={comment} removeComment={removeComment}></Comment>
             </li>
         )
     });
